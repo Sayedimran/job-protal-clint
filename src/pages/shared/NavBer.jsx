@@ -16,9 +16,15 @@ const NavBer = () => {
   };
   const links = (
     <>
-      <li><NavLink to="/">Home </NavLink></li>
-      <li><NavLink to="">Contract</NavLink></li>
-      <li><NavLink to=""> About </NavLink></li>
+      <li>
+        <NavLink to="/">Home </NavLink>
+      </li>
+      <li>
+        <NavLink to="/myApplication">MyApplicationS</NavLink>
+      </li>
+      <li>
+        <NavLink to=""> About </NavLink>
+      </li>
     </>
   );
 

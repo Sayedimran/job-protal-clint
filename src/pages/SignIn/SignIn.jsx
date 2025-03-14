@@ -2,9 +2,16 @@ import React, { useContext, useState } from "react";
 import Lottie from "lottie-react";
 import registerAnimationData from "../../assets/Animation - 1741626459398.json";
 import AuthContext from "../../context/AuthContext";
+import { useLocation, useNavigate } from "react-router-dom";
 const SignIn = () => {
   const [errorMessage, setErrorMessage] = useState(""); // Fixed typo
   const { signInUser } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log("in sign page ", location);
+
+  const from = location.state || "/";
+
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -30,6 +37,7 @@ const SignIn = () => {
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
+        navigate(from);
       })
       .catch((error) => {
         // Fixed error variable name
